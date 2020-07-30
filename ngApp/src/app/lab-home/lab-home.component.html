@@ -1,0 +1,60 @@
+<div class="table" id="maintable">
+    <div class="image" style="background-image: url('../../assets/images/office-1.jpeg')"> 
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div class="card rounded-0" id="main">
+            <div class="card-header">
+                <h3 class="mb-0">Lab @ Home service</h3>
+            </div>
+            
+            <div class="card-body">
+                <form  class="form"  [formGroup]="labForm"  (ngSubmit)="subscribe()">
+                    <div class="form-group">
+                        <label for="testname">Test Name: </label>
+                        <input type="text"  formControlName= "testname" name="testname" id="testname" class="form-control rounded-0" >
+                        <div *ngIf= "labForm.get('testname').invalid && labForm.get('testname').touched">
+                            <small *ngIf = "labForm.get('testname').errors?.required" class="text-white" >Lab Name is required</small>
+                           
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" >
+                        <label for="visitfreq">Visit Frequency: </label>
+                        <select  name="visitfreq" id="visitfreq" class="form-control rounded-0" formControlName="visitfreq" > 
+                           <option *ngFor="let visitfreq of freqoptions" [ngValue]="visitfreq">{{visitfreq}}</option> 
+                    
+                        </select>
+          
+                        <div *ngIf= "labForm.get('visitfreq').invalid && labForm.get('visitfreq').touched">
+                            <small *ngIf = "labForm.get('visitfreq').errors?.required" class="text-white" >Visit Frequency is required</small>
+                            
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="visitdate">Visit Date: </label>
+                        
+                     
+                        <select  name="visitdate" id="visitdate" class="form-control rounded-0" formControlName="visitdate" > 
+                            <option *ngFor="let visitdate of numbers" [ngValue]="visitdate">{{visitdate}}</option> 
+                     
+                         </select>
+                        <div *ngIf= "labForm.get('visitdate').invalid && labForm.get('visitdate').touched">
+                            <small *ngIf = "labForm.get('visitdate').errors?.required" class="text-white" >Visitng Date is required</small>
+                            <small *ngIf = "labForm.get('visitdate').errors?.serverError" class="text-white" >{{labForm.get('visitdate').errors?.serverError}}</small>
+                        </div>
+                       
+                    </div>
+                    <button type="button" routerLink="/profile"  class="btn btn-success float-right ml-2" >Cancel</button>
+                    <button type="submit"  [disabled]="labForm.invalid"  class="btn btn-success float-right">Submit</button>
+        
+        
+                </form>
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-md-4"></div>
+</div>
+</div>
+</div>

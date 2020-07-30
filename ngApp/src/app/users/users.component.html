@@ -1,0 +1,31 @@
+<div class="card mx-auto">
+    <div class="card-header">
+        <h4> List of Users</h4>
+     </div>
+     <div class="card-body" id="main">
+          <div class="table-responsive">
+              <table class="table table-striped">
+                 <thead>
+                     <tr>
+                         <th scope="col">Email</th>
+                         <th scope="col">Name</th>
+                         <th scope="col">Address</th>
+                         <th scope="col">Contact Number </th>
+                         <th></th>
+                          
+                     </tr>
+                 </thead>
+                 <tbody>
+                     <tr *ngFor="let user of users">
+                         <td>{{user.email}}</td>
+                         <td>{{user.name}}</td>
+                         <td>{{user.address}}</td>
+                         <td>{{user.contact}}</td>
+                         <td> <a class="btn btn-primary" (click)="deleteUser(user._id)">Delete User</a></td>
+                     </tr>
+                 </tbody>
+                </table>
+          </div>
+     </div>
+
+</div>

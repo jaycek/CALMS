@@ -1,0 +1,67 @@
+
+<div class="table" id="maintable">
+    <div class="image" style="background-image: url('../../assets/images/office-1.jpeg')"> 
+    
+<div class="row" >
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+        <div class="card rounded-0" id="main">
+            <div class="card-header">
+                <h3 class="mb-0">Electricity bill payment service</h3>
+            </div>
+            
+            <div class="card-body">
+                <form  class="form"  [formGroup]="ebillForm"  >
+                    <div class="form-group">
+                        <label for="consumer">Consumer Number: </label>
+                        <input type="text"  formControlName= "consumer" name="consumer" id="consumer" class="form-control rounded-0" [(ngModel)]='ebdata.consumernum' >
+                        <div *ngIf= "ebillForm.get('consumer').invalid && ebillForm.get('consumer').touched">
+                            <small *ngIf = "ebillForm.get('consumer').errors?.required" class="text-white" >Consumer Number is required</small>
+                           
+                        </div>
+                    </div>
+                    <div class="form-group" >
+                        <label for="frequency">Payment Frequency: </label>
+                           <select  name="paymentfreq" id="paymentfreq" class="form-control rounded-0" formControlName="paymentfreq" [(ngModel)]='ebdata.paymentfreq'> 
+                           <option *ngFor="let paymentfreq of freqoptions" [ngValue]="paymentfreq">{{paymentfreq}}</option> 
+                    
+                        </select>
+          
+                        <div *ngIf= "ebillForm.get('paymentfreq').invalid && ebillForm.get('paymentfreq').touched">
+                            <small *ngIf = "ebillForm.get('paymentfreq').errors?.required" class="text-white" >Payment Frequency is required</small>
+                            
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="dateofpayment">Payment Date: </label>
+                        
+                     
+                        <select  name="dateofpayment" id="dateofpayment" class="form-control rounded-0" formControlName="dateofpayment" [(ngModel)]='ebdata.dateofpayment' > 
+                            <option *ngFor="let dateofpayment of numbers" [ngValue]="dateofpayment">{{dateofpayment}}</option> 
+                     
+                         </select>
+                        <div *ngIf= "ebillForm.get('dateofpayment').invalid && ebillForm.get('dateofpayment').touched">
+                            <small *ngIf = "ebillForm.get('dateofpayment').errors?.required" class="text-white" >Payment Date is required</small>
+                            <small *ngIf = "ebillForm.get('dateofpayment').errors?.serverError" class="text-white" >{{ebillForm.get('dateofpayment').errors?.serverError}}</small>
+                        </div>
+                       
+                    </div>
+                    <button type="button" routerLink="/profile"  class="btn btn-success float-right ml-2" >Cancel</button>
+                    <button type="submit" (click)="update()" [disabled]="ebillForm.invalid"  class="btn btn-success float-right">Submit</button>
+                    
+        
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-4">
+
+    </div>
+
+</div>
+
+</div>
+</div>

@@ -1,0 +1,19 @@
+.card{
+    background:#776c67;
+    color:rgb(49,30,37);
+    margin-top:50px;
+    background-size: cover;
+    border:1px solid white;
+}
+
+
+
+#maintable{
+    height:110vh;
+    background:#776c67;
+}
+.image{
+    height:110vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

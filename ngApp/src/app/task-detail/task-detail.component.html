@@ -1,0 +1,94 @@
+ <div class="table" id="maintable">
+    <div class="image" style="background-image: url('../../assets/images/office-1.jpeg')"> 
+        <div class="row">
+
+        <div class="col-md-4"></div>
+        <div class="col-md-5">
+            
+
+                            <div class="card rounded-0" id="main">
+                                <div class="card-header">
+                                    <h3 class="mb-0">Task Details</h3>
+                                </div>
+                                
+                                <div class="card-body">
+                                    <form >
+                                        <label for="">User email:</label>
+                                        <label class="form-control" for="">{{task.email}}</label>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="">Service Type:</label>
+                                                <label class="form-control" for="">{{task.servicetype}}</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div *ngIf="isEBservice">
+                                                    <label for="">Electricity Consumer Number:</label>
+                                                    <label class="form-control" for="">{{task.consumernum}}</label>
+                                                </div>
+                                                <div *ngIf="isLabservice">
+                                                    <label for="">Lab Test Name:</label>
+                                                    <label class="form-control" for="">{{task.testname}}</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div *ngIf="isEBservice" class="row">
+                                            <div class="col-md-6">
+                                                <label for="">EB Payment Frequency:</label>
+                                                <label class="form-control" for="">{{task.paymentfreq}}</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="">EB Payment Date</label>
+                                                <label class="form-control" for="">{{task.paymentdate}}</label>    
+                                            </div>
+                                        </div>
+                                        
+                                        <div *ngIf="isLabservice" class="row">
+                                            <div class="col-md-6">
+                                                <label for="">Visit Frequency:</label>
+                                                <label class="form-control" for="">{{task.paymentfreq}}</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="">Visit Date</label>
+                                                <label class="form-control" for="">{{task.paymentdate}}</label>    
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="">Task Scheduled Date:</label>
+                                                <label class="form-control" for="">{{task.scheduleddate | date}}</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="">Task Completed?</label>
+                                                <label class="form-control" for="">{{task.completed? 'Yes':'No'}}</label>    
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="">Funds Available:</label>
+                                                <label class="form-control" for="">Rs 20,000</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="">Contact Number:</label>
+                                                <label class="form-control" for="">{{task.contact}}</label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div>
+                                            <button type="button" class="btn btn-success float-right ml-2" routerLink="/tasks">Cancel</button>
+                                            <button type="submit" [disabled]="task.completed" class="btn btn-success float-right"(click)="completeTask()">Complete Task</button>
+                                        </div>
+                                    </form>
+                                </div>
+                </div>
+                
+
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+ </div>
+
+ 
+

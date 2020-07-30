@@ -1,0 +1,63 @@
+
+ <div class="table" id="maintable">
+    <div class="image" style="background-image: url('../../assets/images/office-1.jpeg')"> 
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-5">
+
+                <div class="card rounded-0" id="main">
+                    <div class="card-header">
+                        <h3 class="mb-0">Edit User Details</h3>
+                    </div>
+                    
+                    <div class="card-body">
+                        <form  class="form" [formGroup]="editProfileForm" (ngSubmit)="saveUser()">
+                            <div class="form-group">
+                                <label for="uname1">Name: </label>
+                                <input type="text" formControlName="name" [class.is-invalid] = "editProfileForm.get('name').invalid && editProfileForm.get('name').touched" class="form-control rounded-0" [(ngModel)]="profile.name"  name="name" id="name">
+                                <div *ngIf= "editProfileForm.get('name').invalid && editProfileForm.get('name').touched">
+                                    <small *ngIf = "editProfileForm.get('name').errors?.required" class="text-white" >Name is required</small>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="uname1">Address: </label>
+                                <input type="text" formControlName="address" [class.is-invalid] = "editProfileForm.get('address').invalid && editProfileForm.get('address').touched" class="form-control rounded-0" [(ngModel)]="profile.address"  name="address" id="address">
+                                <div *ngIf= "editProfileForm.get('address').invalid && editProfileForm.get('address').touched">
+                                    <small *ngIf = "editProfileForm.get('address').errors?.required" class="text-white" >Address is required</small>
+                                    <small *ngIf = "editProfileForm.get('address').errors?.pattern" class="text-white" >Enter a valid address</small>
+                                    <small *ngIf = "editProfileForm.get('address').errors?.serverError" class="text-white" >{{editProfileForm.get('address').errors?.serverError}}</small>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="uname1">Contact Number: </label>
+                                <input type="text" formControlName="contact" [class.is-invalid] = "editProfileForm.get('contact').invalid && editProfileForm.get('contact').touched" class="form-control rounded-0" [(ngModel)]="profile.contact"  name="contact" id="contact">
+                                <div *ngIf= "editProfileForm.get('contact').invalid && editProfileForm.get('contact').touched">
+                                    <small *ngIf = "editProfileForm.get('contact').errors?.required" class="text-white" >Contact is required</small>
+                                    <small *ngIf = "editProfileForm.get('contact').errors?.pattern" class="text-white" >Only numbers are allowed. </small>
+                                    <small *ngIf = "editProfileForm.get('contact').errors?.minlength" class="text-white" >Contact number should have atleast 10 numbers. </small>
+                                    <small *ngIf = "editProfileForm.get('contact').errors?.maxlength" class="text-white" >Contact number can have max 12 numbers. </small>
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <div>
+                                <button type="submit" [disabled]='editProfileForm.invalid' class="btn btn-success float-right"(click)="saveUser()">Update</button>
+                                <button type="button" class="btn btn-success float-right mr-2" routerLink="/profile">Cancel</button>
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+
+                        </form> 
+                    </div>
+                </div>
+                   
+        
+    </div>
+    <div class="col-md-4"></div>
+</div>
+    </div>
+ </div>
+
+

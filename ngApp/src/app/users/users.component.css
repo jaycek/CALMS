@@ -1,0 +1,21 @@
+.card{
+    background:#776c67;
+color:white;
+}
+
+thead,tbody{
+    color:white;
+}
+
+table{
+    border: 1px solid white;
+}
+
+#main{
+    
+    height:190vh;
+}
+   
+.card-header{
+    margin-left: 25px;
+}

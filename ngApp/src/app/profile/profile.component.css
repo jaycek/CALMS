@@ -1,0 +1,30 @@
+
+*{
+    margin:0px;
+}
+
+thead,tbody{
+    color:white;
+}
+
+.card{
+    height:85vh;
+}
+
+#top{
+    height:50px;
+    background:#776c67;
+    font-family: cursive;
+}
+
+h3{
+    padding-top: 15px;
+    text-align: center;
+    color:white;
+    text-transform:uppercase;
+}
+.card{
+    background:#776c67;
+    color:rgb(49,30,37);
+   
+}

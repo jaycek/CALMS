@@ -1,0 +1,83 @@
+<div class="table" id="maintable">
+    <div class="image" style="background-image: url('../../assets/images/office-1.jpeg')"> 
+        <div class="row">
+
+            <div class="col-md-4"></div>
+
+            <div class="col-md-4">
+            
+                <div class="card rounded-0" id="main">
+                    <div class="card-header">
+                        <h3 class="mb-0">Register</h3>
+                    </div>
+                    
+                    <div class="card-body">
+                        <form  class="form"  [formGroup]="registerForm"  (ngSubmit)="registerUser()">
+                            <div class="form-group">
+                                <label for="uname1">Email: </label>
+                                <input type="email" formControlName="email" [class.is-invalid] = "registerForm.get('email').invalid && registerForm.get('email').touched" class="form-control rounded-0" [(ngModel)]="registeredUser.email"  name="email" id="email">
+                                <div *ngIf= "registerForm.get('email').invalid && registerForm.get('email').touched">
+                                    <small *ngIf = "registerForm.get('email').errors?.required" class="text-white" >Email is required</small>
+                                    <small *ngIf = "registerForm.get('email').errors?.pattern" class="text-white" >Enter a valid email</small>
+                                    <small *ngIf = "registerForm.get('email').errors?.serverError" class="text-white" >{{registerForm.get('email').errors?.serverError}}</small>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password: </label>
+                                <input type="password"  formControlName="password" [class.is-invalid] = "registerForm.get('password').invalid && registerForm.get('password').touched" class="form-control rounded-0"  [(ngModel)]="registeredUser.password" name="password" id="password">
+                                <div *ngIf= "registerForm.get('password').invalid && registerForm.get('password').touched">
+                                    <small *ngIf = "registerForm.get('password').errors?.required" class="text-white" >Password is required</small>
+                                    <small *ngIf = "registerForm.get('password').errors?.pattern" class="text-white" >Password should be at least 8 characters long and should contain one number,one upper case character, one lower case character.</small>
+                                    
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Confirm Password: </label>
+                                <input type="password"  formControlName="confpassword" [class.is-invalid] = "registerForm.get('confpassword').invalid && registerForm.get('confpassword').touched" class="form-control rounded-0"  [(ngModel)]="registeredUser.confpassword" name="confpassword" id="confpassword" >
+                                <div *ngIf= "registerForm.get('confpassword').invalid && registerForm.get('confpassword').touched">
+                                    <small *ngIf = "registerForm.get('confpassword').errors?.required" class="text-white" >Confirm Password is required</small>
+                                    <small *ngIf = "registerForm.get('confpassword').errors?.pattern" class="text-white" >Password should be at least 8 characters long and should contain one number,one upper case character, one lower case character</small>
+                                    <small *ngIf = "registerForm.get('confpassword').errors?.confirmedValidator" class="text-white" >Password and Confirm Password must match</small>
+                                    
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Name: </label>
+                                <input type= "text" formControlName="name" [class.is-invalid] = "registerForm.get('name').invalid && registerForm.get('name').touched" class="form-control rounded-0" [(ngModel)]="registeredUser.name"  name="name" id="name">
+                                <div *ngIf= "registerForm.get('name').invalid && registerForm.get('name').touched">
+                                    <small *ngIf = "registerForm.get('name').errors?.required" class="text-white" >Name is required</small>
+                                    <small *ngIf = "registerForm.get('name').errors?.serverError" class="text-white" >{{registerForm.get('name').errors?.serverError}}</small>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address: </label>
+                                <input type="text" formControlName="address" [class.is-invalid] = "registerForm.get('address').invalid && registerForm.get('address').touched" class="form-control rounded-0" [(ngModel)]="registeredUser.address"  name="address" id="address">
+                                <div *ngIf= "registerForm.get('address').invalid && registerForm.get('address').touched">
+                                    <small *ngIf = "registerForm.get('address').errors?.required" class="text-white" >Address is required</small>
+                                    <small *ngIf = "registerForm.get('address').errors?.serverError" class="text-white" >{{registerForm.get('address').errors?.serverError}}</small>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact">Contact Number: </label>
+                                <input type="text" formControlName="contact" [class.is-invalid] = "registerForm.get('contact').invalid && registerForm.get('contact').touched" class="form-control rounded-0" [(ngModel)]="registeredUser.contact"  name="contact" id="contact">
+                                <div *ngIf= "registerForm.get('contact').invalid && registerForm.get('contact').touched">
+                                    <small *ngIf = "registerForm.get('contact').errors?.required" class="text-white" >Contact number is required. </small>
+                                    <small *ngIf = "registerForm.get('contact').errors?.pattern" class="text-white" >Only numbers are allowed. </small>
+                                    <small *ngIf = "registerForm.get('contact').errors?.minlength" class="text-white" >Contact number should have atleast 10 numbers. </small>
+                                    <small *ngIf = "registerForm.get('contact').errors?.maxlength" class="text-white" >Contact number can have max 12 numbers. </small>
+                                    
+                                </div>
+                            </div>
+                            <button type="submit" [disabled]="registerForm.invalid" class="btn btn-success float-right">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            
+            </div>
+
+            <div class="col-md-4"></div>
+            
+
+        </div>
+    </div>
+</div>

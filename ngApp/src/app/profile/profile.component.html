@@ -1,0 +1,65 @@
+
+<div id="top" class="card mx-auto">
+    <h3>CALMS Profile Page</h3>
+</div>
+<div class="card ">
+    <div class="row">
+        
+
+      <div class="col-md-6">
+          <br>
+          <br>
+        <h4> Personal Profile</h4>
+     
+          <div class="card-body" >
+              <form >
+                  <label for="">Name:</label>
+                  <label class="form-control" for="">{{user.name}}</label>
+                  <label for="">Email:</label>
+                  <label class="form-control" for="">{{user.email}}</label>
+                  <label for="">Address:</label>
+                  <label class="form-control" for="">{{user.address}}</label>
+                  <label for="">Contact Number:</label>
+                  <label class="form-control" for="">{{user.contact}}</label>
+                  <br>
+                  <button type="submit" class="float-right btn btn-primary" routerLink="/editprofile" >Edit User Details</button>
+              </form>
+          </div>
+      </div>
+      
+      <div class="col-md-6">
+          
+        <br>
+        <br>
+           <h4> List of Enrolled Services</h4>
+        
+        <br>
+      
+             <div class="table-responsive">
+                 <div class="table">
+                    <thead>
+                        <tr>
+                            <th>Service Type</th>
+                            <th>Date of Registration</th>
+                            <th></th>
+                            <th><button class="btn btn-primary" routerLink="/serviceshome" >Add Service</button></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let service of services">
+                            <td>{{service.type}}</td>
+                            <td>{{service.registereddate | date}}</td>
+                            <td><button class="btn btn-primary" (click)="edit(service.type)">Edit</button></td>
+                            
+                            <td><button class="btn btn-danger" (click)="deletebill(service.type)" >Delete</button></td>
+                        </tr>
+                    </tbody>
+                 </div>
+             </div>
+        </div>
+    </div>
+</div>
+
+ 
+
+

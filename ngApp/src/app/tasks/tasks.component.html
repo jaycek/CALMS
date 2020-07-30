@@ -1,0 +1,31 @@
+<div class="card mx-auto">
+    <div class="card-header">
+        <h4> List of Scheduled Tasks</h4>
+     </div>
+     <div class="card-body" id="main">
+          <div class="table-responsive">
+              <table class="table table-striped">
+                 <thead>
+                     <tr>
+                         <th scope="col">User Email</th>
+                         <th scope="col">Task Type</th>
+                         <th scope="col">Scheduled Date</th>
+                         <th scope="col">Completed?  </th>
+                         <th> <button class="btn btn-primary" (click)="toggleSearch()">Show {{searchAll? 'Incomplete ': 'All ' }} Tasks </button></th>
+                          
+                     </tr>
+                 </thead>
+                 <tbody>
+                     <tr *ngFor="let task of tasks">
+                         <td>{{task.email}}</td>
+                         <td>{{task.servicetype}}</td>
+                         <td>{{task.scheduleddate | date}}</td>
+                         <td >{{task.completed ? 'Yes':'No'}}</td>
+                         <td> <a class="btn btn-primary" routerLink="/taskdetail/{{task._id}}">Open Task</a></td>
+                     </tr>
+                 </tbody>
+                </table>
+          </div>
+     </div>
+
+</div>
