@@ -1,27 +1,27 @@
-# NgApp
+Important points
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.0.
+A) CALMS (Citizen Assissted Living Management ) website offers services for 2 sets of users.
 
-## Development server
+	1) Clients of the website - Clients are registered using the Register link.
+	2) Admin users of the website. 
+		Credentials for admin:
+		Email: admin@gmail.com
+		Password: admin123
+B)Token authentication is incorporated for all functionalities. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+C) Clients can subscribe to 2 services. a) Electricity bill payment  b) Lab@ Home 
 
-## Code scaffolding
+D) Clients can view their profile (user details and services subscribed ) in Profile page. They can edit their user details.
+   They can edit and delete services.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+E) Each subscription added by client, generates a task for admin to perform in Tasks page.
 
-## Build
+F) Only Admin can access Tasks page and Users page. Admin can complete a task after doing necessary followup.
+  Admin can also delete a user (which will inturn delete all related services and tasks for that user).
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+G) When admin completes a task, an email will be sent to the client.
+   Note:Please use an functional email id to register as client, so that the email can be received by you after completing a    task as admin user.
 
-## Running unit tests
+H) Payments functionality has not been included. So no mention of payment can be seen anywhere in the site.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+I) Cloud Mongo DB has been used. Node modules folders have been removed.
